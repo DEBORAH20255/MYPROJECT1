@@ -1,0 +1,485 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: white;
+  color: rgb(var(--foreground-rgb));
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Adobe Cloud Styles */
+.adobe-cloud-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
+}
+
+.adobe-panel {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 580px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.move-down {
+  animation: drop 0.6s ease-out;
+}
+
+@keyframes drop {
+  from { 
+    transform: translateY(-30px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+.top-header-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.acrobat-logo-left {
+  width: 44px;
+  height: 44px;
+  margin-right: 18px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.top-header-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.2;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Provider Selection Styles */
+.provider-selection {
+  margin-bottom: 1rem;
+}
+
+.provider-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.provider-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.provider-option {
+  display: flex;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  width: 100%;
+  text-align: left;
+  min-height: 48px;
+}
+
+.provider-option:hover {
+  border-color: #f40f02;
+  background: rgba(244, 15, 2, 0.02);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.provider-option:active {
+  transform: translateY(0);
+}
+
+.provider-icon {
+  font-size: 1.25rem;
+  margin-right: 0.75rem;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.provider-name {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Login Form Styles */
+.login-form {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.selected-provider {
+  margin-bottom: 1.5rem;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  transition: color 0.2s ease;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.back-button:hover {
+  color: #f40f02;
+}
+
+.provider-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  background: rgba(244, 15, 2, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(244, 15, 2, 0.1);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.provider-icon-large {
+  font-size: 1.5rem;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.provider-name-large {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Form Styles */
+input {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.875rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  background: white;
+  color: #333;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  min-height: 48px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+  border-color: #f40f02;
+  box-shadow: 0 0 0 2px rgba(244, 15, 2, 0.1);
+}
+
+button[type="submit"], 
+.provider-btn {
+  width: 100%;
+  background: #f40f02;
+  color: white;
+  border: none;
+  padding: 0.875rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+  font-weight: 500;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button[type="submit"]:hover, 
+.provider-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(244, 15, 2, 0.3);
+  filter: brightness(1.05);
+}
+
+button[type="submit"]:active,
+.provider-btn:active {
+  transform: translateY(0);
+}
+
+button[disabled], 
+.provider-btn[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.adobe-copyright {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 2rem;
+  letter-spacing: 0.05em;
+  opacity: 0.88;
+  font-family: Arial, Helvetica, sans-serif;
+  user-select: none;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1a1a1a;
+  }
+  
+  .adobe-panel {
+    background: rgba(40, 40, 40, 0.95);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .top-header-title,
+  .provider-title,
+  .provider-name-large {
+    color: #fff;
+  }
+  
+  .provider-option {
+    background: rgba(60, 60, 60, 0.8);
+    color: #fff;
+    border-color: #666;
+  }
+  
+  .provider-option:hover {
+    background: rgba(244, 15, 2, 0.1);
+  }
+  
+  .provider-info {
+    background: rgba(244, 15, 2, 0.1);
+    border-color: rgba(244, 15, 2, 0.2);
+  }
+  
+  input {
+    background: rgba(60, 60, 60, 0.8);
+    color: #fff;
+    border-color: #666;
+  }
+  
+  input:focus {
+    border-color: #f40f02;
+  }
+  
+  .back-button {
+    color: #ccc;
+  }
+  
+  .back-button:hover {
+    color: #f40f02;
+  }
+  
+  .adobe-copyright {
+    color: #ccc;
+  }
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 480px) {
+  .adobe-cloud-main {
+    padding: 0.75rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+  
+  .adobe-panel {
+    padding: 1.5rem;
+    border-radius: 8px;
+    max-width: none;
+    margin: 0;
+  }
+  
+  .top-header-title {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+  
+  .acrobat-logo-left {
+    width: 36px;
+    height: 36px;
+    margin-right: 12px;
+  }
+  
+  .provider-title {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .provider-option {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    min-height: 52px;
+  }
+  
+  .provider-icon {
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
+    width: 20px;
+  }
+  
+  .provider-name {
+    font-size: 0.9rem;
+  }
+  
+  .provider-icon-large {
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+  }
+  
+  .provider-name-large {
+    font-size: 0.95rem;
+  }
+  
+  input {
+    padding: 1rem;
+    font-size: 16px; /* Prevents zoom on iOS */
+    min-height: 52px;
+  }
+  
+  button[type="submit"], 
+  .provider-btn {
+    padding: 1rem;
+    font-size: 1rem;
+    min-height: 52px;
+  }
+  
+  .adobe-copyright {
+    font-size: 0.8rem;
+    margin-top: 1.5rem;
+    padding: 0 0.5rem;
+  }
+}
+
+/* Small tablets */
+@media (min-width: 481px) and (max-width: 640px) {
+  .adobe-panel {
+    padding: 2rem;
+    max-width: 480px;
+  }
+  
+  .top-header-title {
+    font-size: 1.35rem;
+  }
+  
+  .provider-option {
+    min-height: 50px;
+  }
+  
+  input,
+  button[type="submit"], 
+  .provider-btn {
+    min-height: 50px;
+  }
+}
+
+/* Medium tablets */
+@media (min-width: 641px) and (max-width: 768px) {
+  .adobe-panel {
+    max-width: 520px;
+    padding: 2.25rem;
+  }
+}
+
+/* Large tablets and small desktops */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .adobe-panel {
+    max-width: 560px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .provider-option:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  button[type="submit"]:hover, 
+  .provider-btn:hover {
+    transform: none;
+    box-shadow: none;
+    filter: none;
+  }
+  
+  .provider-option:active {
+    background: rgba(244, 15, 2, 0.05);
+    transform: scale(0.98);
+  }
+  
+  button[type="submit"]:active,
+  .provider-btn:active {
+    transform: scale(0.98);
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .acrobat-logo-left {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
